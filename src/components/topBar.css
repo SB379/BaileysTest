@@ -1,0 +1,34 @@
+.bar-container {
+    width: 100%;
+    height: 10%;
+    background-color: #a32638;
+    display: flex;
+    align-content: flex-start;
+}
+
+.left {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 50%;
+    margin-left: 2.5%;
+}
+
+.right{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    width: 50%;
+    margin-right: 2.5%;
+}
+
+.title-text {
+    font-family: 'Arial';
+    font-size: 32px;
+}
+
+.button-text {
+    font-family: 'Arial';
+    font-size: 28px;
+    padding: 1%;
+}
