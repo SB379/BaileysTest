@@ -1,0 +1,30 @@
+
+POST /auth/login HTTP/1.1
+Host: localhost:3000
+Content-Type: application/json
+
+{
+    "username": "ssmif",
+    "password": "spring2023"
+}
+
+###
+
+POST /auth/register HTTP/1.1
+Host: localhost:3000
+Content-Type: application/json
+
+{
+    "username": "ssmif",
+    "password": "spring2023"
+}
+
+###
+
+GET /auth/me HTTP/1.1
+Host: localhost:3000
+
+###
+
+POST /auth/logout HTTP/1.1
+Host: localhost:3000
