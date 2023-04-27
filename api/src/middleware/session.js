@@ -1,30 +1,20 @@
-import RedisStore from "connect-redis"
-import session from "express-session"
-import {createClient} from "redis"
-import isProd from "../util/isProd.js";
+import RedisStore from "connect-redis";
+import session from "express-session";
+import Redis from "ioredis";
+import createClient from "../redis/createClient.js";
 
 export default async function (app) {
-    if(isProd()) {
-        const redisClient = createClient();
-        await redisClient.connect();
+  const redisStore = new RedisStore({
+    client: createClient(),
+    prefix: "sess:",
+  });
 
-        const redisStore = new RedisStore({
-            client: redisClient,
-            prefix: "sess:",
-        })
-
-        app.use(session({
-            store: redisStore,
-            resave: false,
-            saveUninitialized: false,
-            secret: 'secret',
-        }))
-    }
-    else {
-        app.use(session({
-            resave: false,
-            secret: 'secret',
-            saveUninitialized: false,
-        }))
-    }
+  app.use(
+    session({
+      store: redisStore,
+      resave: false,
+      saveUninitialized: true,
+      secret: "secret",
+    })
+  );
 }

@@ -6,3 +6,6 @@ export const PASSWORD_TOO_SHORT = "Password must be at least 8 characters";
 export const NOT_AUTHENTICATED = "Not authenticated";
 export const USERNAME_ALREADY_EXISTS = "Username already exists";
 export const PUBLIC_ROUTES = ["/auth/login", "/auth/register", "/auth/me"];
+
+export const POPULATE_QUEUE = "q_populate";
+export const PERFORMANCE_QUEUE = "q_performance";
